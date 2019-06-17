@@ -1,4 +1,4 @@
-package com.edu.eduservice;
+package com.edu;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

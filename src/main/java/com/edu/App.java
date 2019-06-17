@@ -1,4 +1,4 @@
-package com.edu.eduservice;
+package com.edu;
 
 /**
  * Hello world!
