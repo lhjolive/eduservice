@@ -1,0 +1,22 @@
+package com.edu.dragon.config.system;
+
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+/**
+ * 
+ * @author: olive
+ * @description: 设置首页
+ * @date: 2021-01-26 05:41:57
+ */
+@Configuration
+public class DefaultView extends WebMvcConfigurerAdapter {
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/").setViewName("forward:/index.html");
+		registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+		super.addViewControllers(registry);
+	}
+}
