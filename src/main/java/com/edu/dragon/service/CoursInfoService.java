@@ -1,6 +1,9 @@
 package com.edu.dragon.service;
 
+import org.springframework.data.domain.Page;
+
 import com.alibaba.fastjson.JSONObject;
+import com.edu.dragon.entity.CoursInfo;
 
 /**
  * 
@@ -18,7 +21,7 @@ public interface CoursInfoService {
 	/**
 	 * 课程信息列表
 	 */
-	JSONObject listCoursInfo(JSONObject jsonObject);
+	Page<CoursInfo> listCoursInfo(JSONObject jsonObject);
 
 	/**
 	 * 更新课程信息
