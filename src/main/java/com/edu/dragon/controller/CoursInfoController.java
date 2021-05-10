@@ -51,9 +51,9 @@ public class CoursInfoController {
 	 */
 	@RequiresPermissions("coursInfo:add")
 	@PostMapping("/addCoursInfo")
-	public JSONObject addCoursInfo(@RequestBody JSONObject requestJson) {
+	public ResultDto<CoursInfo> addCoursInfo(@RequestBody JSONObject requestJson) {
 		CommonUtil.hasAllRequired(requestJson, "");
-		return coursInfoService.addCoursInfo(requestJson);
+		return new ResultDto<CoursInfo>(coursInfoService.addCoursInfo(requestJson));
 	}
 	
 	/**
@@ -64,8 +64,8 @@ public class CoursInfoController {
 	 */
 	@RequiresPermissions("coursInfo:update")
 	@PostMapping("/updateCoursInfo")
-	public JSONObject updateCoursInfo(@RequestBody JSONObject requestJson) {
+	public ResultDto<CoursInfo> updateCoursInfo(@RequestBody JSONObject requestJson) {
 		CommonUtil.hasAllRequired(requestJson, "");
-		return coursInfoService.updateCoursInfo(requestJson);
+		return new ResultDto<CoursInfo>(coursInfoService.addCoursInfo(requestJson)) ;
 	}
 }

@@ -16,7 +16,7 @@ public interface CoursInfoService {
 	/**
 	 * 新增课程信息
 	 */
-	JSONObject addCoursInfo(JSONObject jsonObject);
+	CoursInfo addCoursInfo(JSONObject jsonObject);
 
 	/**
 	 * 课程信息列表
@@ -26,5 +26,5 @@ public interface CoursInfoService {
 	/**
 	 * 更新课程信息
 	 */
-	JSONObject updateCoursInfo(JSONObject jsonObject);
+	CoursInfo updateCoursInfo(JSONObject jsonObject);
 }

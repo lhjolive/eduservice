@@ -20,18 +20,25 @@ public class CoursInfo implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)//自增主键
     private Integer id;
 
+    
+    @Column(name = "cours_name",length = 255) //课程名称
+    private String coursName;
+    
     @Column //省略默认列名就是属性名
     private String stage;
     
     @Column 
     private String grade;
     
-    @Column(name = "grade_detail",length = 10) 
-    private String gradeDetail;
+    @Column(name = "cours_time",length = 10) //上课时间
+    private String coursTime;
     
-    @Column(name = "cours_type",length = 10)
-    private String coursType;
+    @Column //教师
+    private String teacher;
     
+    @Column //地点
+    private String addr;
+
     @Column(name = "create_time",length = 20)
     private String createTime;
     
@@ -65,20 +72,36 @@ public class CoursInfo implements Serializable {
 		this.grade = grade;
 	}
 
-	public String getGradeDetail() {
-		return gradeDetail;
+	public String getCoursName() {
+		return coursName;
 	}
 
-	public void setGradeDetail(String gradeDetail) {
-		this.gradeDetail = gradeDetail;
+	public void setCoursName(String coursName) {
+		this.coursName = coursName;
 	}
 
-	public String getCoursType() {
-		return coursType;
+	public String getCoursTime() {
+		return coursTime;
 	}
 
-	public void setCoursType(String coursType) {
-		this.coursType = coursType;
+	public void setCoursTime(String coursTime) {
+		this.coursTime = coursTime;
+	}
+
+	public String getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(String teacher) {
+		this.teacher = teacher;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
 	public String getCreateTime() {

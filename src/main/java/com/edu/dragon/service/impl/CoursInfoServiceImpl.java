@@ -24,10 +24,10 @@ public class CoursInfoServiceImpl implements CoursInfoService {
 	private CoursInfoDao coursInfoDao;
 	
 	@Override
-	public JSONObject addCoursInfo(JSONObject jsonObject) {
-		CoursInfo coursInfo = new CoursInfo();
+	public CoursInfo addCoursInfo(JSONObject jsonObject) {
+		CoursInfo coursInfo = JSONObject.toJavaObject(jsonObject, CoursInfo.class);
 		coursInfoDao.save(coursInfo);
-		return null;
+		return coursInfo;
 	}
 
 	@Override
@@ -38,9 +38,10 @@ public class CoursInfoServiceImpl implements CoursInfoService {
 	}
 
 	@Override
-	public JSONObject updateCoursInfo(JSONObject jsonObject) {
-		// TODO Auto-generated method stub
-		return null;
+	public CoursInfo updateCoursInfo(JSONObject jsonObject) {
+		CoursInfo coursInfo = JSONObject.toJavaObject(jsonObject, CoursInfo.class);
+		coursInfoDao.save(coursInfo);
+		return coursInfo;
 	}
 
 }
