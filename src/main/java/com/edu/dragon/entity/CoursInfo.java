@@ -1,16 +1,25 @@
 package com.edu.dragon.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name="cours_info")
 public class CoursInfo implements Serializable {
 
@@ -39,11 +48,15 @@ public class CoursInfo implements Serializable {
     @Column //地点
     private String addr;
 
+    @CreatedDate
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "create_time",length = 20)
-    private String createTime;
+    private Date createTime;
     
+    @LastModifiedDate
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "update_time",length = 20)
-    private String updateTime;
+    private Date updateTime;
     
     @Column(name = "delete_status",length = 1)
     private String deleteStatus;
@@ -104,19 +117,19 @@ public class CoursInfo implements Serializable {
 		this.addr = addr;
 	}
 
-	public String getCreateTime() {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(String createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
-	public String getUpdateTime() {
+	public Date getUpdateTime() {
 		return updateTime;
 	}
 
-	public void setUpdateTime(String updateTime) {
+	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 

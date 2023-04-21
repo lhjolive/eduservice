@@ -32,7 +32,9 @@ public class CoursInfoServiceImpl implements CoursInfoService {
 
 	@Override
 	public Page<CoursInfo> listCoursInfo(JSONObject jsonObject) {
-		Pageable pageable = new PageRequest(0, 10);
+		int pageNum = jsonObject.getIntValue("pageNum");
+		int pageRow = jsonObject.getIntValue("pageRow");
+		Pageable pageable = new PageRequest(pageNum-1, pageRow);
 		Page<CoursInfo> result = coursInfoDao.findAll(pageable);
 		return result;
 	}
